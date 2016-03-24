@@ -1,0 +1,22 @@
+.icons {
+	text-align: center;
+}
+.icons a {
+	padding: 8px 10px 6px;
+	display: inline-block;
+	margin: 1px 5px;
+	width: 40px;
+	height: 40px;
+}
+
+.icons a:hover {
+	opacity: 0.5;	
+}
+
+.icons .fa-facebook, .icons .facebook {
+	background-image: url("f.jpg");	
+}
+
+.icons .fa-twitter, .icons .twitter {
+	background-image: url("t.jpg");
+}
