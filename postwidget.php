@@ -10,7 +10,7 @@
 * License: GPL
 */
 
-//bc_latest_cpt_init
+// this function registers the widget to the sidebar
 function bc_latest_cpt_init() {
 if ( !function_exists( 'register_sidebar_widget' ))
 return;
@@ -37,7 +37,8 @@ $pq = new WP_Query(array( 'post_type' => $posttype, 'showposts' => $showpost ));
 if( $pq->have_posts() ) :
 ?>
 <ul>
-<ul><?php while($pq->have_posts()) : $pq->the_post(); ?>
+<ul><?php // this adds the thumbnail of the posts to be displayed in the sidebar
+ while($pq->have_posts()) : $pq->the_post(); ?>
     <p><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail() ; ?></a></p>
 </ul>
 </ul>
@@ -46,18 +47,12 @@ endwhile; ?>
 
 <?php endif; ?>
 
-<!-- NEEDS FIX: to display link to full list of posts page
-<?php $obj = get_post_type_object($ptype); ?>
-<div class="latest_cpt_icon"><a href="<?php site_url('/'.$obj->query_var); ?>" rel="bookmark"><?php _e( 'View all ' . $obj->labels->name . ' posts' ); ?>&rarr;</a></div>
-//-->
-
 <?php
-// echo widget closing tag
 echo $after_widget;
 }
 
 /**
-* Widget settings form function
+* These are the setting that are displayed in the widgets settings on Wordpress
 */
 function bc_latest_cpt_control() {
 
@@ -66,9 +61,9 @@ $options = get_option( 'bc_latest_cpt' );
 // options exist? if not set defaults
 if ( !is_array( $options ))
 $options = array(
-'head' => 'Latest Posts',
-'posttype' => 'post',
-'showpost' => '5'
+'head' => 'Latest Posts', // name of the widget
+'posttype' => 'post',// type of post displayed
+'showpost' => '5' // number of posts you want to display
 );
 // form posted?
 if ( $_POST['latest-cpt-submit'] ) {
@@ -82,7 +77,6 @@ $head = $options['head'];
 $posttype = $options['posttype'];
 $showpost = $options['showpost'];
 
-// The widget form fields
 ?>
 
 <label for="latest-cpt-head"><?php echo __( 'Widget Name' ); ?>
