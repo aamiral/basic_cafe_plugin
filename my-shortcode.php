@@ -43,13 +43,19 @@ add_shortcode( 'bcshortcode', 'display_custom_post_type' );
 
 //this is a function for custom post type that will allow users to add in recipes on the website. The code is retrieved from https://codex.wordpress.org/Post_Types 
 
+
 function create_post_type() {
   register_post_type( 'acme_recipe',
+
     array(
+        'supports'  => array( 'title', 'editor', 'thumbnail', ),
       'labels' => array(
         'name' => __( 'Recipes' ),
         'singular_name' => __( 'recipes' )
+
       ),
+      
+    
       'public' => true,
       'has_archive' => true,
     )
