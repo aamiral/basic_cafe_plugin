@@ -11,9 +11,7 @@
 */
 
 // this function enqueues the css stylesheet
-function bc_latest_cpt_init() {
-    wp_enqueue_style('post-widget', plugins_url('basic_cafe_plugin/css/style.css'));
-}
+
 
 // this function registers the widget to the sidebar
 function bc_latest_cpt_init() {
