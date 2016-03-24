@@ -17,19 +17,24 @@ Hi. I'm a plugin called basic_cafe_plugin. The plugin adds a custom post type on
 
 == Installation ==
 	
-1. In your admin panel, go to Plugins and activate 'Basic Cafe Plugin'.
+1- In your admin panel, go to Plugins and activate 'Basic Cafe Plugin'.
 
 == Widget ==
 
-1. In your admin panel, go to Plugins and activate 'Basic Cafe Social Links Widget'.
-2. 1. In your admin panel, go to Appearance -> Widgets
-3. Drag the 'Social Links' widget to the required menu bar
+1- In your admin panel, go to Plugins and activate 'Basic Cafe Social Links Widget'.
+2- 1. In your admin panel, go to Appearance -> Widgets
+3- Drag the 'Social Links' widget to the required menu bar
 
-== Custom Post Type ==
-1. In your admin panel, you will see the Recipe tab, hover over and click on add new to create new posts.
+==Custom Post Type Attributes==
+1- bcshortcode => is the name of the shortcode for the custom post type
+2-‘acme_recipe' => is the name of the post type for the custom post type
+3- name => is the name displayed on your admin panel. 
+
+== Using Custom Post Type ==
+1- In your admin panel, you will see the Recipe tab, hover over and click on add new to create new posts.
 2- Once done you may add a featured image that you can choose from the media library on Wordpress.
 
-== Shortcode ==
+== Shortcode Attributes ==
 1- post_type => is the attribute that displays the custom post type. 
 2- post_status => must be publish, to ensure your posts are visible on the front-end of the website.
 3- posts_per_page => sets the number of custom posts you want to display on your page.
