@@ -3,7 +3,7 @@
 /*
 * Plugin Name: Basic Cafe Plugin
 * Plugin URI: http://hayaaleena.com
-* Description: Assignment 4
+* Description: Assignment 3, in this assignment we were to create a plugnin that consists a widget, custom post type, and a shortcode to display posts from our custom post type. 
 * Author: Haya & Aleena
 * Author URI: http://haya&aleena.com
 * Version: 1.0
@@ -17,57 +17,36 @@ add_action('wp_enqueue_scripts', 'bcplugin_enqueue_scripts');
 
 
 
-//shortcode http://www.tcbarrett.com/2012/11/wordpress-shortcode-to-make-a-list-of-your-custom-post-type-posts/#.VvME5sdeDVo
-add_shortcode( 'custom_posts', 'tcb_sc_custom_posts' );
-function tcb_sc_custom_posts( $atts ){
-  global $post;
-  $default = array(
-    'type'      => 'product',
-    'post_type' => 'acme_product',
-    'limit'     => 3,
-    'status'    => 'publish'
-  );
-  $r = shortcode_atts( $default, $atts );
-  extract( $r );
+// this shortcode allows users to display certain number of posts from the custom post type on any page they add the shortcode on. The code is retrieved from: http://wordpress.stackexchange.com/questions/183538/display-custom-post-type-with-shortcode
+ add_shortcode( 'bcshortcode', 'display_custom_post_type' );
 
-  if( empty($post_type) )
-    $post_type = $type;
+    function display_custom_post_type(){
+        $args = array(
+            'post_type' => 'acme_recipe',// this is the post type of our custom post
+            'post_status' => 'publish', // this allows the posts to be published on the actual site
+            'posts_per_page'=> '3' // the number of posts to display from the custom post type
+        );
 
-  $post_type_ob = get_post_type_object( $post_type );
-  if( !$post_type_ob )
-    return '<div class="warning"><p>No such post type <em>' . $post_type . '</em> found.</p></div>';
+        $content = '';
+        $query = new WP_Query( $args );
+        if( $query->have_posts() ){
+            while( $query->have_posts() ){
+                $query->the_post();
+                $content .= '<p><a href="' . get_permalink() . '"</a>' . get_the_title() .  		get_the_content() .  '</p>'; // this displays the title, content, and attaches the link of the post
+            }
+        }
+        wp_reset_postdata();
+        return $content;
+    }
 
-  $return = '<h3>' . $post_type_ob->post . '</h3>';
-
-  $args = array(
-    'post_type'   => $post_type,
-    'numberposts' => $limit,
-    'post_status' => $status,
-  );
- 
-  $posts = get_posts( $args );
-  if( count($posts) ):
-    $return .= '<ul>';
-    foreach( $posts as $post ): setup_postdata( $post );
-      $return .= '<li>' . get_the_title() . '</li>';
-    endforeach; wp_reset_postdata();
-    $return .= '</ul>';
-  else :
-    $return .= '<p>No posts found.</p>';
-  endif;
-  
-  return $return;
-}
-
-
-//custom post type
+//this is a function for custom post type that will allow users to add in recipes on the website. The code is retrieved from https://codex.wordpress.org/Post_Types 
 
 function create_post_type() {
-  register_post_type( 'acme_product',
+  register_post_type( 'acme_recipe',
     array(
       'labels' => array(
-        'name' => __( 'Products' ),
-        'singular_name' => __( 'Product' )
+        'name' => __( 'Recipes' ),
+        'singular_name' => __( 'recipes' )
       ),
       'public' => true,
       'has_archive' => true,
