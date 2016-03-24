@@ -13,7 +13,7 @@ A starter theme called basic_cafe
 
 == Description ==
 
-Hi. I'm a theme called basic_cafe.
+Hi. I'm a plugin called basic_cafe_plugin. The plugin adds a custom post type on your dashboard named Recipe, add a widget that shows posts form Recipe, a widget for social media sites, and a shortcode that you can add on any page to display Recipe posts. 
 
 == Installation ==
 	
@@ -26,11 +26,21 @@ Hi. I'm a theme called basic_cafe.
 3. Drag the 'Social Links' widget to the required menu bar
 
 == Custom Post Type ==
-
+1. In your admin panel, you will see the Recipe tab, hover over and click on add new to create new posts.
+2- Once done you may add a featured image that you can choose from the media library on Wordpress.
 
 == Shortcode ==
+1- post_type => is the attribute that displays the custom post type. 
+2- post_status => must be publish, to ensure your posts are visible on the front-end of the website.
+3- posts_per_page => sets the number of custom posts you want to display on your page.
 
-
+==Using the Shortcode ==
+1- Create a new page or go to existing page where you want to display posts form custom post type
+2- in the content box add the following code:
+			
+		[bcshortcode type=acme_product]
+ 
+3- Publish, and you should be able to see the posts on the page.
 
 
 
