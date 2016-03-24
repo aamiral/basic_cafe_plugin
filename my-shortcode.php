@@ -18,7 +18,7 @@ add_action('wp_enqueue_scripts', 'bcplugin_enqueue_scripts');
 
 
 // this shortcode allows users to display certain number of posts from the custom post type on any page they add the shortcode on. The code is retrieved from: http://wordpress.stackexchange.com/questions/183538/display-custom-post-type-with-shortcode
- add_shortcode( 'bcshortcode', 'display_custom_post_type' );
+
 
     function display_custom_post_type(){
         $args = array(
@@ -38,6 +38,8 @@ add_action('wp_enqueue_scripts', 'bcplugin_enqueue_scripts');
         wp_reset_postdata();
         return $content;
     }
+    
+add_shortcode( 'bcshortcode', 'display_custom_post_type' );
 
 //this is a function for custom post type that will allow users to add in recipes on the website. The code is retrieved from https://codex.wordpress.org/Post_Types 
 
