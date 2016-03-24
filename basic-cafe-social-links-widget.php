@@ -30,11 +30,13 @@ class Basic_cafe_Social_Links extends WP_Widget {
         $title = apply_filters('widget_title', $instance['title']);
         $facebook = $instance['facebook'];
         $twitter = $instance['twitter'];
+        $instagram = $instance['instagram'];
 
 // These are the social media links we have added to the widget
 
         $facebook_profile = '<a class="facebook" href="' . $facebook . '"><i class="fa fa-facebook"></i></a>';
         $twitter_profile = '<a class="twitter" href="' . $twitter . '"><i class="fa fa-twitter"></i></a>';
+        $instagram_profile = '<a class="instagram" href="' . $instagram . '"><i class="fa fa-instagram"></i></a>';
 
 
         echo $args['before_widget'];
@@ -46,6 +48,7 @@ class Basic_cafe_Social_Links extends WP_Widget {
         echo '<div class="icons">';
         echo (!empty($facebook) ) ? $facebook_profile : null;
         echo (!empty($twitter) ) ? $twitter_profile : null;
+        echo (!empty($instagram) ) ? $instagram_profile : null;
         echo '</div>';
 
         echo $args['after_widget'];
@@ -59,6 +62,7 @@ class Basic_cafe_Social_Links extends WP_Widget {
 
         isset($instance['facebook']) ? $facebook = $instance['facebook'] : null;
         isset($instance['twitter']) ? $twitter = $instance['twitter'] : null;
+        isset($instance['instagram']) ? $instagram = $instance['instagram'] : null;
 
         ?>
         <p>
@@ -69,6 +73,11 @@ class Basic_cafe_Social_Links extends WP_Widget {
         <p>
             <label for="<?php echo $this->get_field_id('facebook'); ?>"><?php _e('Facebook:'); ?></label> 
             <input class="widefat" id="<?php echo $this->get_field_id('facebook'); ?>" name="<?php echo $this->get_field_name('facebook'); ?>" type="text" value="<?php echo esc_attr($facebook); ?>">
+        </p>
+
+        <p>
+            <label for="<?php echo $this->get_field_id('instagram'); ?>"><?php _e('Instagram:'); ?></label> 
+            <input class="widefat" id="<?php echo $this->get_field_id('instagram'); ?>" name="<?php echo $this->get_field_name('instagram'); ?>" type="text" value="<?php echo esc_attr($instagram); ?>">
         </p>
 
         <p>
@@ -86,6 +95,7 @@ class Basic_cafe_Social_Links extends WP_Widget {
         $instance['title'] = (!empty($new_instance['title']) ) ? strip_tags($new_instance['title']) : '';
         $instance['facebook'] = (!empty($new_instance['facebook']) ) ? strip_tags($new_instance['facebook']) : '';
         $instance['twitter'] = (!empty($new_instance['twitter']) ) ? strip_tags($new_instance['twitter']) : '';
+        $instance['instagram'] = (!empty($new_instance['instagram']) ) ? strip_tags($new_instance['instagram']) : '';
 
         return $instance;
     }

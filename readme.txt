@@ -19,11 +19,19 @@ Hi. I'm a plugin called basic_cafe_plugin. The plugin adds a custom post type on
 	
 1- In your admin panel, go to Plugins and activate 'Basic Cafe Plugin'.
 
-== Widget ==
+== Widget ‘Basic Cafe Social Links Widget’ ==
 
 1- In your admin panel, go to Plugins and activate 'Basic Cafe Social Links Widget'.
 2- 1. In your admin panel, go to Appearance -> Widgets
 3- Drag the 'Social Links' widget to the required menu bar
+4- From here you can add links for facebook or twitter
+
+== Widget ‘PostWidget’==
+
+1- In your admin panel, go to Plugins and activate ‘Postwidget’.
+2- 1. In your admin panel, go to Appearance -> Widgets
+3- Drag the ‘postwidget’ widget to the required menu bar
+4- From here you change the settings such as how many posts to appear.
 
 ==Custom Post Type Attributes==
 1- bcshortcode => is the name of the shortcode for the custom post type
