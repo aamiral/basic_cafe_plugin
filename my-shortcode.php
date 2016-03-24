@@ -32,7 +32,7 @@ add_action('wp_enqueue_scripts', 'bcplugin_enqueue_scripts');
         if( $query->have_posts() ){
             while( $query->have_posts() ){
                 $query->the_post();
-                $content .= '<p><a href="' . get_permalink() . '"</a>' . get_the_title() .  		get_the_content() .  '</p>'; // this displays the title, content, and attaches the link of the post
+                $content .= '<p><a href="' . get_permalink() . '"</a>' . get_the_title() .  		get_the_post_thumbnail() .  '</p>'; // this displays the title, content, and attaches the link of the post
             }
         }
         wp_reset_postdata();
