@@ -13,9 +13,13 @@
 	opacity: 0.5;	
 }
 
+/* image from https://www.facebookbrand.com/img/fb-art.jpg */
+
 .icons .fa-facebook, .icons .facebook {
 	background-image: url("f.jpg");	
 }
+
+/* image from https://c1.staticflickr.com/9/8372/8507143767_5d05944a44.jpg */
 
 .icons .fa-twitter, .icons .twitter {
 	background-image: url("t.jpg");

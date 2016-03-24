@@ -6,6 +6,8 @@
   Author: Haya & Aleena
   Author URI: http://haya&aleena.com
  */
+ 
+ //Code taken from http://designmodo.com/wordpress-social-media-widget/
 
 //Adds Basic_Cafe_Social_Profile widget
 
