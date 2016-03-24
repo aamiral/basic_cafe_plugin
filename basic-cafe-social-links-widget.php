@@ -7,13 +7,13 @@
   Author URI: http://haya&aleena.com
  */
  
- //Code taken from http://designmodo.com/wordpress-social-media-widget/
+ //Code retrieved from http://designmodo.com/wordpress-social-media-widget/
 
 //Adds Basic_Cafe_Social_Profile widget
 
 class Basic_cafe_Social_Links extends WP_Widget {
 
-//Register widget with WordPress.
+//Registers widget with WordPress.
    
      public function __construct() {
         parent::__construct(
@@ -23,7 +23,7 @@ class Basic_cafe_Social_Links extends WP_Widget {
         );
     }
 
-// Front-end display of widget.
+// This adds the front-end display of the widget.
 
     public function widget($args, $instance) {
 
@@ -31,7 +31,7 @@ class Basic_cafe_Social_Links extends WP_Widget {
         $facebook = $instance['facebook'];
         $twitter = $instance['twitter'];
 
-// social links
+// These are the social media links we have added to the widget
 
         $facebook_profile = '<a class="facebook" href="' . $facebook . '"><i class="fa fa-facebook"></i></a>';
         $twitter_profile = '<a class="twitter" href="' . $twitter . '"><i class="fa fa-twitter"></i></a>';
@@ -51,7 +51,7 @@ class Basic_cafe_Social_Links extends WP_Widget {
         echo $args['after_widget'];
     }
 
-//change links in the backend
+//this function allows users to change the link of the social media platform on wordpress
 
     public function form($instance) {
         isset($instance['title']) ? $title = $instance['title'] : null;
@@ -92,14 +92,14 @@ class Basic_cafe_Social_Links extends WP_Widget {
 
 }
 
-// register Basic_Cafe_Social_Links widget
+// registers Basic_Cafe_Social_Links widget
 function register_basic_cafe_social_links() {
     register_widget('Basic_Cafe_Social_Links');
 }
 
 add_action('widgets_init', 'register_basic_cafe_social_links');
 
-// enqueue css stylesheet
+// enqueues css stylesheet
 function basic_cafe_social_links_widget_css() {
     wp_enqueue_style('social-links-widget', plugins_url('basic-cafe-social-links-widget.css', __FILE__));
 }
