@@ -79,7 +79,7 @@ class Basic_cafe_Social_Links extends WP_Widget {
         <?php
     }
 
-//Sanitize widget form values as they are saved.
+//Reviews, saves, and submits the content made by the user on wordpress
 
     public function update($new_instance, $old_instance) {
         $instance = array();
